@@ -1,6 +1,8 @@
-import React from 'react';
+import React , {useContext} from 'react';
+import { TodoContext } from './App';
 
 export default function Todo({task}) {
+  const {handleRemoveTask} = useContext(TodoContext)
   return (
     <div className='todo-container'>
         <div className="todo-details-container">
@@ -13,7 +15,12 @@ export default function Todo({task}) {
         </div>
         <div className="task-edit-btn-container">
             <button className='task-edit-btn btn btn--primary'>Edit</button>
-            <button className='task-remove-btn btn btn--danger'>Remove</button>
+            <button 
+            className='task-remove-btn btn btn--danger'
+            onClick={() => handleRemoveTask(task.id)}
+            >
+              Remove
+            </button>
         </div>
     </div>
   );

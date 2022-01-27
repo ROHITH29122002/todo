@@ -8,7 +8,8 @@ function App() {
   const [ tasks , setTasks ] = useState(smapletasks)
   
   const todocontextvalue = {
-    handleAddTask
+    handleAddTask,
+    handleRemoveTask
   }
   function handleAddTask(){
     const NewTask = {
@@ -18,6 +19,9 @@ function App() {
       description : 'description'
     }
     setTasks([...tasks,NewTask])
+  }
+  function handleRemoveTask(id){
+    setTasks(tasks.filter(task => task.id !== id))
   }
   return (
     <TodoContext.Provider value={todocontextvalue}>
