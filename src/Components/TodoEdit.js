@@ -2,7 +2,10 @@ import React ,{ useContext } from 'react';
 import { TodoContext } from './App';
 
 export default function TodoEdit({task}) {
-  const {handleSelectedTask} = useContext(TodoContext)
+  const {handleSelectedTask , handleTaskChange } = useContext(TodoContext)
+  function handleChange(changes){
+    handleTaskChange(task.id , {...task,...changes})
+  }
   return (
       <div className='edit-wrapper'>
         <div className='closebtn-container'>
@@ -22,6 +25,7 @@ export default function TodoEdit({task}) {
           name='task' 
           id='task' 
           value={task.name}
+          onChange={e => handleChange({name : e.target.value})}
           />
           <label className='edit-label'  htmlFor='time'>Time</label>
           <input 
@@ -30,6 +34,7 @@ export default function TodoEdit({task}) {
           name='time' 
           id='time' 
           value={task.time}
+          onChange={e => handleChange({time : e.target.value})}
           />
           <label className='edit-label'  htmlFor='description'>Description</label>
           <textarea 
@@ -38,6 +43,7 @@ export default function TodoEdit({task}) {
           name='description' 
           id='description' 
           value={task.description}
+          onChange={e => handleChange({description : e.target.value})}
           />
         </div>
         <div className='done-btn-container'>

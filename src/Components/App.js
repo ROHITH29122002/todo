@@ -24,7 +24,8 @@ function App() {
     handleAddTask,
     handleRemoveTask,
     handleEditTask,
-    handleSelectedTask
+    handleSelectedTask,
+    handleTaskChange
   }
   function handleAddTask(){
     const NewTask = {
@@ -43,6 +44,12 @@ function App() {
   }
   function handleSelectedTask(id){
     setselectedtaskid(id)
+  }
+  function handleTaskChange(id,newtask){
+    const NewTasks = [...tasks]
+    const Index = tasks.findIndex(r => r.id===id)
+    NewTasks[Index]=newtask
+    setTasks(NewTasks)
   }
   return (
     <TodoContext.Provider value={todocontextvalue}>
