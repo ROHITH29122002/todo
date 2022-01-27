@@ -30,9 +30,9 @@ function App() {
   function handleAddTask(){
     const NewTask = {
       id : uuidv4(),
-      name : 'new task',
-      time : 'new time ',
-      description : 'description'
+      name : '',
+      time : '',
+      description : ''
     }
     setTasks([...tasks,NewTask])
   }
