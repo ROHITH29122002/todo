@@ -22,7 +22,8 @@ body {
 }
 
 .todo-list-container {
-  margin-left: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   margin-top: 1rem;
 }
 
@@ -39,6 +40,7 @@ body {
   font-size: inherit;
   font-weight: 700;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .btn--primary {
@@ -88,15 +90,70 @@ body {
   border-radius: 10px;
 }
 
-@media screen and (min-width: 700px) {
-  .todo-container {
-    width: 50%;
-  }
-}
-
 .task-edit-btn-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 1rem;
+}
+
+.todo-value {
+  padding-left: 2rem;
+}
+
+.edit-wrapper {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.edit-heading {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.edit-container {
+  display: grid;
+  grid-template-columns: auto, 1fr;
+  row-gap: 1rem;
+  padding: 1rem;
+}
+
+.edit-label {
+  font-weight: 700;
+}
+
+.edit-input {
+  outline: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.edit-textarea {
+  outline: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 10px;
+  resize: none;
+  height: 100px;
+}
+
+.done-btn-container {
+  text-align: center;
+}
+
+.close-btn {
+  font-size: 2rem;
+  color: black;
+  padding: 0;
+  background-color: #ccc;
+}
+
+.closebtn-container {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  text-align: end;
 }

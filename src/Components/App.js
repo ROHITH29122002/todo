@@ -2,11 +2,14 @@ import React , {useState , useEffect } from 'react';
 import '../css/App.css'
 import { v4 as uuidv4 } from 'uuid'
 import TodoList from './TodoList';
+import TodoEdit from './TodoEdit';
 export const TodoContext = React.createContext()
 
 function App() {
   const [ tasks , setTasks ] = useState(smapletasks)
   const LOCAL_STORAGE_KEY = 'TO-DO APP'
+  const [selectedtaskid , setselectedtaskid] = useState()
+  const selectedtask = tasks.find(task => task.id === selectedtaskid)
 
   useEffect(() => {
     const tasksjson = localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -19,7 +22,9 @@ function App() {
 
   const todocontextvalue = {
     handleAddTask,
-    handleRemoveTask
+    handleRemoveTask,
+    handleEditTask,
+    handleSelectedTask
   }
   function handleAddTask(){
     const NewTask = {
@@ -33,19 +38,26 @@ function App() {
   function handleRemoveTask(id){
     setTasks(tasks.filter(task => task.id !== id))
   }
+  function handleEditTask(id){
+    setselectedtaskid(id)
+  }
+  function handleSelectedTask(id){
+    setselectedtaskid(id)
+  }
   return (
     <TodoContext.Provider value={todocontextvalue}>
       <h1 className='heading'>TO - DO LIST</h1>
       <TodoList tasks={tasks}/>
+      { selectedtask && <TodoEdit task = {selectedtask}/>}
     </TodoContext.Provider>
   )
 }
 const smapletasks = [
   {
     id : uuidv4(),
-    name : 'Walk',
+    name : 'Wake up',
     time : '5:30 am',
-    description : 'Walk in the morning'
+    description : 'Wake up and go for a walk in the morning'
   },
   {
     id : uuidv4(),
