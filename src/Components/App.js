@@ -1,4 +1,4 @@
-import React , {useState } from 'react';
+import React , {useState , useEffect } from 'react';
 import '../css/App.css'
 import { v4 as uuidv4 } from 'uuid'
 import TodoList from './TodoList';
@@ -6,7 +6,17 @@ export const TodoContext = React.createContext()
 
 function App() {
   const [ tasks , setTasks ] = useState(smapletasks)
-  
+  const LOCAL_STORAGE_KEY = 'TO-DO APP'
+
+  useEffect(() => {
+    const tasksjson = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if(tasksjson != null ) setTasks(JSON.parse(tasksjson))
+  },[])
+
+  useEffect( ()=>{
+    localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(tasks))
+  },[tasks])
+
   const todocontextvalue = {
     handleAddTask,
     handleRemoveTask
