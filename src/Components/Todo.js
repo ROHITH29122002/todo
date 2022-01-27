@@ -6,11 +6,11 @@ export default function Todo({task}) {
   return (
     <div className='todo-container'>
         <div className="todo-details-container">
-            <span className='todo-label'>Task</span>
+            <span className='todo-label'>Task :</span>
             <span className='todo-value'>{task.name}</span>
-            <span className='todo-label'>Time</span>
+            <span className='todo-label'>Time :</span>
             <span className='todo-value'>{task.time}</span>
-            <span className='todo-label'>Description</span>
+            <span className='todo-label'>Description :</span>
             <p className='todo-value'>{task.description}</p>
         </div>
         <div className="task-edit-btn-container">

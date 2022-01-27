@@ -26,6 +26,7 @@ export default function TodoEdit({task}) {
           id='task' 
           value={task.name}
           onChange={e => handleChange({name : e.target.value})}
+          placeholder='Enter Task Name Here'
           />
           <label className='edit-label'  htmlFor='time'>Time</label>
           <input 
@@ -35,6 +36,7 @@ export default function TodoEdit({task}) {
           id='time' 
           value={task.time}
           onChange={e => handleChange({time : e.target.value})}
+          placeholder='Enter Time For Task Here'
           />
           <label className='edit-label'  htmlFor='description'>Description</label>
           <textarea 
@@ -44,6 +46,7 @@ export default function TodoEdit({task}) {
           id='description' 
           value={task.description}
           onChange={e => handleChange({description : e.target.value})}
+          placeholder='Enter Description About Task Here'
           />
         </div>
         <div className='done-btn-container'>
