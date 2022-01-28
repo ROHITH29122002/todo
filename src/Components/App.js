@@ -31,7 +31,7 @@ function App() {
     const NewTask = {
       id : uuidv4(),
       name : '',
-      time : Date(),
+      time : '',
       description : ''
     }
     setTasks([...tasks,NewTask])
@@ -51,10 +51,15 @@ function App() {
     NewTasks[Index]=newtask
     setTasks(NewTasks)
   }
+  function handleDateSort(){
+    setTasks(tasks.sort(function(a,b){
+      return new Date(a.time).valueOf() - new Date(b.time).valueOf();
+    }))
+  }
   return (
     <TodoContext.Provider value={todocontextvalue}>
       <h1 className='heading'>TO - DO LIST</h1>
-      <TodoList tasks={tasks}/>
+      { handleDateSort && <TodoList tasks={tasks}/>}
       { selectedtask && <TodoEdit task = {selectedtask}/>}
     </TodoContext.Provider>
   )

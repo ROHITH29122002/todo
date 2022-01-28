@@ -37,7 +37,7 @@ export default function TodoEdit({task}) {
           id='time' 
           value={task.time}
           onChange={e => handleChange({time : e.target.value})}
-          placeholder='Enter Time For Task Here'
+          placeholder='MM DD YY HH:MM'
           />
           <label className='edit-label'  htmlFor='description'>Description</label>
           <textarea 
