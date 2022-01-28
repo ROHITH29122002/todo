@@ -83,6 +83,7 @@ body {
 
 .todo-value {
   white-space: pre-wrap;
+  text-transform: uppercase;
 }
 .todo-container {
   border: 1px solid black;
@@ -130,6 +131,7 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5rem 1rem;
+  text-transform: capitalize;
 }
 
 .edit-textarea {
@@ -139,6 +141,7 @@ body {
   padding: 5px 10px;
   resize: none;
   height: 100px;
+  text-transform: uppercase;
 }
 
 .done-btn-container {

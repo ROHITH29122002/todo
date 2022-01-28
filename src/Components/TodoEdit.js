@@ -3,6 +3,7 @@ import { TodoContext } from './App';
 
 export default function TodoEdit({task}) {
   const {handleSelectedTask , handleTaskChange } = useContext(TodoContext)
+  
   function handleChange(changes){
     handleTaskChange(task.id , {...task,...changes})
   }

@@ -6,7 +6,7 @@ import TodoEdit from './TodoEdit';
 export const TodoContext = React.createContext()
 
 function App() {
-  const [ tasks , setTasks ] = useState(smapletasks)
+  const [ tasks , setTasks ] = useState(sampletasks)
   const LOCAL_STORAGE_KEY = 'TO-DO APP'
   const [selectedtaskid , setselectedtaskid] = useState()
   const selectedtask = tasks.find(task => task.id === selectedtaskid)
@@ -31,7 +31,7 @@ function App() {
     const NewTask = {
       id : uuidv4(),
       name : '',
-      time : '',
+      time : Date(),
       description : ''
     }
     setTasks([...tasks,NewTask])
@@ -59,11 +59,11 @@ function App() {
     </TodoContext.Provider>
   )
 }
-const smapletasks = [
+const sampletasks = [
   {
     id : uuidv4(),
     name : 'Wake up',
-    time : '5:30 am',
+    time : '5:00 am',
     description : 'Wake up and go for a walk in the morning'
   },
   {
